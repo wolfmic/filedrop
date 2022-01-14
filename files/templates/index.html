@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<form action="/upload/" method="POST" id="post-form" enctype="multipart/form-data">
+  <label for="formFileLg" class="form-label">Téléverser un fichier</label>
+  <input class="form-control form-control-lg" name="file" id="file" type="file" accept="*">
+  {% csrf_token %}
+  {{ form }}
+  <button class="btn btn-primary btn-lg" >Confirmer</button>
+</form>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+{% load static %}
+<script src="{% static 'js/main.js' %}"></script>
+
+
+{% endblock %}
